@@ -29,6 +29,9 @@ mute=PhotoImage(file=r"c:\Python36\Projects\Music Player\Icons\mute.png")
 nextImg=PhotoImage(file=r"c:\Python36\Projects\Music Player\Icons\next (3).png")
 prevImg=PhotoImage(file=r"c:\Python36\Projects\Music Player\Icons\arrow.png")
 displayImg=PhotoImage(file=r"Icons\Display_background.png")
+
+FileImg=PhotoImage(file="C:/Python36/Projects/Music Player/Icons/file_browser.png")
+ExitImg=PhotoImage(file="C:/Python36/Projects/Music Player/Icons/exit.png")
 def button_hover(e):
     playbutton['bg']="#f5f6fa"
 def button_over(e):
@@ -45,15 +48,11 @@ def browse_file():
     playbutton.configure(image=play)
     print("selected:",filename)
 def Menu_file():
-    submenu=Menu(menubar,tearoff=0)
-    menubar.add_cascade(label="file",menu=submenu)
-    submenu.add_command(label="new")
-    submenu.add_command(label="open",command=browse_file)
-    submenu.add_command(label="Save")
-    submenu.add_command(label="save as")
-    submenu.add_command(label="page setup")
-    submenu.add_command(label="print")
-    submenu.add_command(label="Exit",command=root.destroy)
+    submenu=Menu(menubar, tearoff=0)
+    menubar.add_cascade(label="file", menu=submenu)
+
+    submenu.add_command(label="open", image=FileImg, compound="left", command=browse_file)
+    submenu.add_command(label="Exit", command=root.destroy, image=ExitImg, compound="left")
 def menu_Edit():
     submenu=Menu(menubar,tearoff=0)
     menubar.add_cascade(label="Edit",menu=submenu)
